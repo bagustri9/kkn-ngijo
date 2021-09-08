@@ -14,7 +14,8 @@ class WargaController extends Controller
      */
     public function index()
     {
-        //
+        $data = Warga::paginate(10);
+        return response()->json($data);
     }
 
     /**
@@ -24,7 +25,6 @@ class WargaController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +35,9 @@ class WargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Warga::create($request->all());
+
+        return response()->json($data);
     }
 
     /**
@@ -44,9 +46,12 @@ class WargaController extends Controller
      * @param  \App\Models\Warga  $warga
      * @return \Illuminate\Http\Response
      */
-    public function show(Warga $warga)
+    public function show($warga)
     {
-        //
+        $data = Warga::where('nik', '%LIKE%', '%' . $warga . '%')
+            ->orWhere('nama', 'LIKE', '%' . $warga . '%')
+            ->get();
+        return response()->json($data);
     }
 
     /**
@@ -67,9 +72,10 @@ class WargaController extends Controller
      * @param  \App\Models\Warga  $warga
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Warga $warga)
+    public function update(Request $request, $warga)
     {
-        //
+        $data = Warga::where('nik', $warga)->update($request->all());
+        return response()->json($data);
     }
 
     /**
@@ -78,8 +84,9 @@ class WargaController extends Controller
      * @param  \App\Models\Warga  $warga
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Warga $warga)
+    public function destroy($warga)
     {
-        //
+        $data = Warga::where('nik', $warga)->delete();
+        return response()->json($data);
     }
 }
