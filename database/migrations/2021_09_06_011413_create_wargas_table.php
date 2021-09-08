@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+
 class CreateWargasTable extends Migration
 {
     /**
@@ -34,32 +34,6 @@ class CreateWargasTable extends Migration
             $table->string('ayah');
             $table->timestamps();
         });
-        function addData($array)
-        {
-            $time = strtotime($array[5]);
-            $tgl_lahir = date('Y-m-d',$time);
-
-            return [
-                'nik' => $array[0],
-                'nomor_kk' => $array[1],
-                'nama' => $array[2],
-                'jk' => $array[3],
-                'tempat_lahir' => $array[4],
-                'tanggal_lahir' => $tgl_lahir,
-                'dusun' => $array[6],
-                'rt' => $array[7],
-                'rw' => $array[8],
-                'nomor_rumah' => $array[9],
-                'agama' => $array[10],
-                'status' => $array[11],
-                'shdrt' => $array[12],
-                'pendidikan' => $array[13],
-                'pekerjaan' => $array[14],
-                'ibu' => $array[15],
-                'ayah' => $array[16],
-            ];
-        }
-        
     }
 
     /**
