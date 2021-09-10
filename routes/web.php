@@ -19,10 +19,10 @@ use App\Http\Controllers\WargaController;
 //     return $router->app->version();
 // });
 
-$router->group(['prefix' => 'warga'], function () use ($router) {
-    $router->get('/', ['uses' => 'WargaController@index']);
-    $router->get('/{warga}', ['uses' => 'WargaController@show']);
-    $router->post('/', ['uses' => 'WargaController@store']);
-    $router->post('/{warga}', ['uses' => 'WargaController@update']);
-    $router->delete('/{warga}/delete', ['uses' => 'WargaController@destroy']);
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('warga/', ['uses' => 'WargaController@index']);
+    $router->get('warga/{warga}', ['uses' => 'WargaController@show']);
+    $router->post('warga/', ['uses' => 'WargaController@store']);
+    $router->post('warga/{warga}', ['uses' => 'WargaController@update']);
+    $router->delete('warga/{warga}/delete', ['uses' => 'WargaController@destroy']);
 });
