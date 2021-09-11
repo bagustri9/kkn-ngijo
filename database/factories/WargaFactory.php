@@ -11,8 +11,24 @@ class WargaFactory extends Factory
 
     public function definition(): array
     {
-    	return [
-    	    //
-    	];
+        return [
+            'nik' => $this->faker->randomDigit(),
+            'nomor_kk' => $this->faker->randomDigit(),
+            'nama' => $this->faker->name,
+            'jk' => "P",
+            'tempat_lahir' => "random",
+            'tanggal_lahir' => "2001-10-09",
+            'dusun' => "random",
+            'rt' => $this->faker->randomDigit(),
+            'rw' => $this->faker->randomDigit(),
+            'nomor_rumah' => $this->faker->randomDigit(),
+            'agama' => "random",
+            'status' => "random",
+            'shdrt' => "random",
+            'pendidikan' => "random",
+            'pekerjaan' => "random",
+            'ibu' => "random",
+            'ayah' => "random"
+        ];
     }
 }

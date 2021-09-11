@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Warga;
 use Illuminate\Database\Seeder;
 
 class WargaSeeder extends Seeder
@@ -13,6 +14,8 @@ class WargaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Warga::factory()
+            ->count(50)
+            ->create();
     }
 }
