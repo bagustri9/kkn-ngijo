@@ -16,7 +16,26 @@ use App\Http\Controllers\WargaController;
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return "<p>+--------+---------------------------+------------+--------------------------------------+---------+------------+</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Verb&nbsp;&nbsp;&nbsp;|&nbsp;Path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;NamedRoute&nbsp;|&nbsp;Controller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Action&nbsp;&nbsp;|&nbsp;Middleware&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;+--------+---------------------------+------------+--------------------------------------+---------+------------+</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;GET&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Closure&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;GET&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;/api/warga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;App\Http\Controllers\WargaController&nbsp;|&nbsp;index&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;GET&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;/api/warga/{warga}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;App\Http\Controllers\WargaController&nbsp;|&nbsp;show&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;POST&nbsp;&nbsp;&nbsp;|&nbsp;/api/warga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;App\Http\Controllers\WargaController&nbsp;|&nbsp;store&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;POST&nbsp;&nbsp;&nbsp;|&nbsp;/api/warga/{warga}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;App\Http\Controllers\WargaController&nbsp;|&nbsp;update&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;DELETE&nbsp;|&nbsp;/api/warga/{warga}/delete&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;App\Http\Controllers\WargaController&nbsp;|&nbsp;destroy&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+    
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;+--------+---------------------------+------------+--------------------------------------+---------+------------+</p>
+    ";
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
