@@ -15,9 +15,9 @@ use App\Http\Controllers\WargaController;
 |
 */
 
-// $router->get('/', function () use ($router) {
-//     return $router->app->version();
-// });
+$router->get('/', function () use ($router) {
+    return $router->app->version();
+});
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('warga/', ['uses' => 'WargaController@index']);
