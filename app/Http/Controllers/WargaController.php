@@ -48,7 +48,7 @@ class WargaController extends Controller
      */
     public function show($warga)
     {
-        $data = Warga::where('nik', '%LIKE%', '%' . $warga . '%')
+        $data = Warga::where('nik', 'LIKE', '%' . $warga . '%')
             ->orWhere('nama', 'LIKE', '%' . $warga . '%')
             ->get();
         return response()->json($data);
