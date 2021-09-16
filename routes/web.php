@@ -17,19 +17,21 @@ use App\Http\Controllers\WargaController;
 
 $router->get('/', function () use ($router) {
     return '<pre>
-    +--------+-----------------------------+------------+-----------------------------------------------------+----------+------------+
-    | Verb &nbsp; | Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| NamedRoute | Controller &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Action &nbsp; | Middleware |
-    +--------+-----------------------------+------------+-----------------------------------------------------+----------+------------+
-    | GET &nbsp; &nbsp;| / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| None &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Closure &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    | GET &nbsp; &nbsp;| /api/warga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| index &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    | GET &nbsp; &nbsp;| /api/warga/{warga} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| show &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    | POST &nbsp; | /api/warga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| store &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    | POST &nbsp; | /api/warga/{warga} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| update &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    | DELETE | /api/warga/{warga}/delete &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| destroy &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    | POST &nbsp; | /api/surat-pengantar-pindah | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\SuratPengantarPindahController | store &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Field : &quot;warga_nik&quot;,&quot;asal_desa&quot;,&quot;kecamatan&quot;,&quot;kabupaten_kota&quot;,&quot;provinsi&quot;,&quot;banyaknya&quot;,&quot;keterangan&quot;
-    | GET &nbsp; &nbsp;| /api/to-export/{surat}/{id} | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\SuratController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| toExport | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-    +--------+-----------------------------+------------+-----------------------------------------------------+----------+------------+
-    </pre>    
+    +--------+----------------------------------+------------+-----------------------------------------------------+----------+------------+
+    | Verb &nbsp; | Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | NamedRoute | Controller &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Action &nbsp; | Middleware |
+    +--------+----------------------------------+------------+-----------------------------------------------------+----------+------------+
+    | GET &nbsp; &nbsp;| / &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| None &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Closure &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+    | GET &nbsp; &nbsp;| /api/warga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| index &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+    | GET &nbsp; &nbsp;| /api/warga/{warga} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| show &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+    | POST &nbsp; | /api/warga &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| store &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+    | POST &nbsp; | /api/warga/{warga} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| update &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+    | DELETE | /api/warga/{warga}/delete &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\WargaController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| destroy &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+    | POST &nbsp; | /api/surat-pengantar-pindah &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\SuratPengantarPindahController | store &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| field : &quot;no_surat&quot;,&nbsp;&quot;warga_nik&quot;,&nbsp;&quot;asal_desa&quot;,&nbsp;&quot;kecamatan&quot;,&nbsp;&quot;kabupaten_kota&quot;,&nbsp;&quot;provinsi&quot;,&nbsp;&quot;banyaknya&quot;,&nbsp;&quot;keterangan&quot;
+    | GET &nbsp; &nbsp;| /api/surat-pengantar-pindah/{id} | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\SuratPengantarPindahController | show &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| 
+    | GET &nbsp; &nbsp;| /api/to-export/{surat}/{id} &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| App\Http\Controllers\SuratController &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| toExport | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| surat : surat-pengantar-pindah
+    +--------+----------------------------------+------------+-----------------------------------------------------+----------+------------+
+    </pre>
+       
     ';
 });
 
@@ -43,6 +45,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     /* Route Surat Pengantar Pindah */
     $router->post('surat-pengantar-pindah/', ['uses' => 'SuratPengantarPindahController@store']);
+    $router->get('surat-pengantar-pindah/{id}', ['uses' => 'SuratPengantarPindahController@show']);
 
     /* Route Export */
     $router->get('to-export/{surat}/{id}', ['uses' => 'SuratController@toExport']);

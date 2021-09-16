@@ -62,9 +62,10 @@ class SuratPengantarPindahController extends Controller
      * @param  \App\Models\SuratPengantarPindah  $suratPengantarPindah
      * @return \Illuminate\Http\Response
      */
-    public function show(SuratPengantarPindah $suratPengantarPindah)
+    public function show($id)
     {
-        //
+        $data = SuratPengantarPindah::where('no_surat', $id)->get();
+        return response()->json($data);
     }
 
     /**

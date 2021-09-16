@@ -8,9 +8,9 @@ class SuratController extends Controller
 {
     public function toExport($surat, $id)
     {
-        return response()->json([
-            'surat' => $surat,
-            'id' => $id
-        ]);
+        switch ($surat) {
+            case 'surat-pengantar-pindah':
+                return redirect('api/surat-pengantar-pindah/' . $id);
+        }
     }
 }
