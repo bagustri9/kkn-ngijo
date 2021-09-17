@@ -17,6 +17,7 @@ class CreateSuratPengantarPindahsTable extends Migration
             $table->id();
             $table->string("no_surat");
             $table->string("warga_nik");
+            $table->string("nama");
             $table->string("asal_desa");
             $table->string("kecamatan");
             $table->string("kabupaten_kota");

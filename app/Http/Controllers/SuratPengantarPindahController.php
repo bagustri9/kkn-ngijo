@@ -45,6 +45,7 @@ class SuratPengantarPindahController extends Controller
         $data = SuratPengantarPindah::create([
             "no_surat" => ++$nosurat,
             "warga_nik" => $request->warga_nik,
+            "nama" => $request->nama,
             "asal_desa" => $request->asal_desa,
             "kecamatan" => $request->kecamatan,
             "kabupaten_kota" => $request->kabupaten_kota,
