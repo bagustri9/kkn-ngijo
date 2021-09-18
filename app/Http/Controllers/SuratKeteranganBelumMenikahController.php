@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SuratPengantarPindah;
+use App\Models\SuratKeteranganBelumMenikah;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
-class SuratPengantarPindahController extends Controller
+class SuratKeteranganBelumMenikahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class SuratPengantarPindahController extends Controller
      */
     public function index()
     {
-        $data = SuratPengantarPindah::get();
+        $data = SuratKeteranganBelumMenikah::get();
         return response()->json($data);
     }
 
@@ -35,37 +34,37 @@ class SuratPengantarPindahController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function getNosurat()
     {
-        return SuratPengantarPindah::count() > 0 ? SuratPengantarPindah::max('no_surat') : 0;
+        return SuratKeteranganBelumMenikah::count() > 0 ? SuratKeteranganBelumMenikah::max('no_surat') : 0;
     }
 
     public function store(Request $request)
     {
         $nosurat = $this->getNosurat();
-        $data = SuratPengantarPindah::create(array_merge($request->all(), ['no_surat' => ++$nosurat]));
+        $data = SuratKeteranganBelumMenikah::create(array_merge($request->all(), ['no_surat' => ++$nosurat]));
         return response()->json($data);
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SuratPengantarPindah  $suratPengantarPindah
+     * @param  \App\Models\SuratKeteranganBelumMenikah  $suratKeteranganBelumMenikah
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $data = SuratPengantarPindah::where('no_surat', $id)->first();
+        $data = SuratKeteranganBelumMenikah::where('no_surat', $id)->first();
         return response()->json($data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SuratPengantarPindah  $suratPengantarPindah
+     * @param  \App\Models\SuratKeteranganBelumMenikah  $suratKeteranganBelumMenikah
      * @return \Illuminate\Http\Response
      */
-    public function edit(SuratPengantarPindah $suratPengantarPindah)
+    public function edit(SuratKeteranganBelumMenikah $suratKeteranganBelumMenikah)
     {
         //
     }
@@ -74,10 +73,10 @@ class SuratPengantarPindahController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SuratPengantarPindah  $suratPengantarPindah
+     * @param  \App\Models\SuratKeteranganBelumMenikah  $suratKeteranganBelumMenikah
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SuratPengantarPindah $suratPengantarPindah)
+    public function update(Request $request, SuratKeteranganBelumMenikah $suratKeteranganBelumMenikah)
     {
         //
     }
@@ -85,10 +84,10 @@ class SuratPengantarPindahController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SuratPengantarPindah  $suratPengantarPindah
+     * @param  \App\Models\SuratKeteranganBelumMenikah  $suratKeteranganBelumMenikah
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SuratPengantarPindah $suratPengantarPindah)
+    public function destroy(SuratKeteranganBelumMenikah $suratKeteranganBelumMenikah)
     {
         //
     }
