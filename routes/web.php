@@ -23,6 +23,7 @@ $router->get('/', function () use ($router) {
     | GET    | /                                         |            | None                                                           | Closure  |            |
     | GET    | /api/warga                                |            | App\Http\Controllers\WargaController                           | index    |            |
     | GET    | /api/warga/{warga}                        |            | App\Http\Controllers\WargaController                           | show     |            |
+    | GET    | /api/warga/find/{nik}                     |            | App\Http\Controllers\WargaController                           | getWarga |            |
     | POST   | /api/warga                                |            | App\Http\Controllers\WargaController                           | store    |            |
     | POST   | /api/warga/{warga}                        |            | App\Http\Controllers\WargaController                           | update   |            |
     | DELETE | /api/warga/{warga}/delete                 |            | App\Http\Controllers\WargaController                           | destroy  |            |
@@ -44,7 +45,7 @@ $router->get('/', function () use ($router) {
     | GET    | /api/api/surat-ket-penghasilan/{id}       |            | App\Http\Controllers\SuratKeteranganPenghasilanController      | show     |            |
     | POST   | /api/api/surat-ket-pindah                 |            | App\Http\Controllers\SuratKeteranganPindahController           | store    |            | field : &quot;warga_nik&quot;,&quot;nama&quot;,&quot;jenis_kelamin&quot;,&quot;tempat_lahir&quot;,&quot;tanggal_lahir&quot;,&quot;agama&quot;,&quot;status_perkawinan&quot;,&quot;pekerjaan&quot;,&quot;alamat&quot;,&quot;RT&quot;,&quot;RW&quot;,&quot;jalan&quot;,&quot;desa_kelurahan&quot;,&quot;kecamatan&quot;,&quot;kabupaten_kota&quot;,&quot;provinsi&quot;,&quot;kode_pos&quot;,&quot;alasan_pindah&quot;,&quot;keterangan&quot;,
     | GET    | /api/api/surat-ket-pindah/{id}            |            | App\Http\Controllers\SuratKeteranganPindahController           | show     |            |
-    | POST   | /api/api/surat-ket-tidakmampu             |            | App\Http\Controllers\SuratKeteranganTidakMampuController       | store    |            |field : &quot;warga_nik&quot;,&quot;nama&quot;,&quot;jenis_kelamin&quot;,&quot;tempat_lahir&quot;,&#39;tanggal_lahir&#39;,&quot;agama&quot;,&quot;status_perkawinan&quot;,&quot;pekerjaan&quot;,&quot;alamat&quot;,&quot;RT&quot;,&quot;RW&quot;,&quot;dusun&quot;,&quot;keterangan&quot;,
+    | POST   | /api/api/surat-ket-tidakmampu             |            | App\Http\Controllers\SuratKeteranganTidakMampuController       | store    |            | field : &quot;warga_nik&quot;,&quot;nama&quot;,&quot;jenis_kelamin&quot;,&quot;tempat_lahir&quot;,&#39;tanggal_lahir&#39;,&quot;agama&quot;,&quot;status_perkawinan&quot;,&quot;pekerjaan&quot;,&quot;alamat&quot;,&quot;RT&quot;,&quot;RW&quot;,&quot;dusun&quot;,&quot;keterangan&quot;,
     | GET    | /api/api/surat-ket-tidakmampu/{id}        |            | App\Http\Controllers\SuratKeteranganTidakMampuController       | show     |            |
     | POST   | /api/api/surat-ket-tidakmampu-dinsos      |            | App\Http\Controllers\SuratKeteranganTidakMampuDinsosController | store    |            | field : &quot;warga_nik&quot;,&quot;nama&quot;,&quot;jenis_kelamin&quot;,&quot;tempat_lahir&quot;,&quot;tanggal_lahir&quot;,&quot;agama&quot;,&quot;alamat&quot;,&quot;RT&quot;,&quot;RW&quot;,&quot;dusun&quot;,&quot;pekerjaan&quot;,&quot;kewarganegaraan&quot;,&quot;keterangan&quot;,
     | GET    | /api/api/surat-ket-tidakmampu-dinsos/{id} |            | App\Http\Controllers\SuratKeteranganTidakMampuDinsosController | show     |            |
@@ -65,6 +66,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     /* Route Warga */
     $router->get('warga/', ['uses' => 'WargaController@index']);
     $router->get('warga/{warga}', ['uses' => 'WargaController@show']);
+    $router->get('warga/find/{nik}', ['uses' => 'WargaController@getWarga']);
     $router->post('warga/', ['uses' => 'WargaController@store']);
     $router->post('warga/{warga}', ['uses' => 'WargaController@update']);
     $router->delete('warga/{warga}/delete', ['uses' => 'WargaController@destroy']);

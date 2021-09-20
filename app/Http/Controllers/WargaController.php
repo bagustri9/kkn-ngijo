@@ -48,12 +48,17 @@ class WargaController extends Controller
      */
     public function show($warga)
     {
-        $data = Warga::where('nik', 'LIKE', '%' . $warga . '%')
-            ->orWhere('nama', 'LIKE', '%' . $warga . '%')
+        $data = Warga::where(strtoupper('nik'), 'LIKE', '%' . strtoupper($warga) . '%')
+            ->orWhere(strtoupper('nama'), 'LIKE', '%' . strtoupper(str_replace('%20', ' ', $warga)) . '%')
             ->get();
         return response()->json($data);
     }
 
+    public function getWarga($nik)
+    {
+        $data = Warga::where('nik', $nik)->first();
+        return response()->json($data);
+    }
     /**
      * Show the form for editing the specified resource.
      *
