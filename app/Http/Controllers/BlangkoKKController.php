@@ -14,7 +14,7 @@ class BlangkoKKController extends Controller
      */
     public function index()
     {
-        $data = BlangkoKK::get();
+        $data = BlangkoKK::leftJoin('anggota_k_k_s', 'blangko_k_k_s.nomor_kartu_keluarga', '=', 'anggota_k_k_s.nomor_kartu_keluarga')->get();
         return response()->json($data);
     }
 
@@ -34,15 +34,16 @@ class BlangkoKKController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getNosurat()
-    {
-        return BlangkoKK::count() > 0 ? BlangkoKK::max('no_surat') : 0;
-    }
 
     public function store(Request $request)
     {
-        $nosurat = $this->getNosurat();
-        $data = BlangkoKK::create(array_merge($request->all(), ['no_surat' => ++$nosurat]));
+        $data = BlangkoKK::create($request->all());
+        for ($i = 0; $i < count($request->anggota); $i++) {
+            $req = new Request();
+            $req->replace($request->anggota[$i]);
+            $anggota = new AnggotaKKController();
+            $anggota->store($req, $request->nomor_kartu_keluarga);
+        }
         return response()->json($data);
     }
 
@@ -54,7 +55,7 @@ class BlangkoKKController extends Controller
      */
     public function show($id)
     {
-        $data = BlangkoKK::where('no_surat', $id)->first();
+        $data = BlangkoKK::where('nomor_kartu_keluarga', $id)->first();
         return response()->json($data);
     }
 

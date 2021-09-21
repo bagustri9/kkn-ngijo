@@ -73,6 +73,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('warga/{warga}/delete', ['uses' => 'WargaController@destroy']);
 
     /* Route Blangko KK */
+    $router->get('blangko-kk', ['uses' => 'BlangkoKKController@index']);
     $router->post('blangko-kk', ['uses' => 'BlangkoKKController@store']);
     $router->get('blangko-kk/{id}', ['uses' => 'BlangkoKKController@show']);
 
