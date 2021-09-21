@@ -48,8 +48,8 @@ class WargaController extends Controller
      */
     public function show($warga)
     {
-        $data = Warga::where(strtoupper('nik'), 'LIKE', '%' . strtoupper($warga) . '%')
-            ->orWhere(strtoupper('nama'), 'LIKE', '%' . strtoupper(str_replace('%20', ' ', $warga)) . '%')
+        $data = Warga::whereRaw("UPPER(nik) LIKE '%" . strtoupper($warga) . "%'")
+            ->orWhereRaw("UPPER(nama) LIKE '%" . strtoupper($warga) . "%'")
             ->get();
         return response()->json($data);
     }

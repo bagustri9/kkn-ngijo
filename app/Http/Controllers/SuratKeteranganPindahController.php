@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuratKeteranganPindah;
+use App\Models\SuratPengantarPindah;
 use Illuminate\Http\Request;
 
 class SuratKeteranganPindahController extends Controller
@@ -34,9 +35,22 @@ class SuratKeteranganPindahController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function getNosurat()
+    {
+        return SuratKeteranganPindah::count() > 0 ? SuratKeteranganPindah::max('no_surat') : 0;
+    }
+
     public function store(Request $request)
     {
-        return response()->json($request);
+        $nosurat = $this->getNosurat();
+        $data = SuratKeteranganPindah::create(array_merge($request->all(), ['keterangan' => '-'], ['no_surat' => ++$nosurat]));
+        for ($i = 0; $i < count($request->pengikut); $i++) {
+            $req = new Request();
+            $req->replace($request->pengikut[$i]);
+            $pengikut = new PengikutController();
+            $pengikut->store($req, $nosurat);
+        }
+        return response()->json($data);
     }
 
     /**
