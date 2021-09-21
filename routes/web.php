@@ -133,4 +133,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     /* Route Export */
     $router->get('to-export/{surat}/{id}', ['uses' => 'SuratController@toExport']);
+
+    /* Route Get No Surat */
+    $router->get('getNoSurat/{surat}', ['uses' => 'SuratController@getNoSurat']);
 });

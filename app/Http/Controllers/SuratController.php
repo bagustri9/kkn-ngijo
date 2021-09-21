@@ -2,10 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SuratKeteranganBedaNama;
+use Database\Factories\SuratKeteranganBelumMenikahFactory;
 use Illuminate\Http\Request;
 
 class SuratController extends Controller
 {
+    public function getNoSurat($surat)
+    {
+        $controller = "";
+        switch ($surat) {
+            case 'blangko-kk':
+                $controller = new BlangkoKKController();
+                break;
+            case 'surat-ket-beda-nama':
+                $controller = new SuratKeteranganBedaNamaController();
+                break;
+            case 'surat-ket-belum-menikah':
+                $controller = new SuratKeteranganBelumMenikahController();
+                break;
+            case 'surat-ket-biodata':
+                $controller = new SuratKeteranganBiodataPendudukController();
+                break;
+            case 'surat-ket-domisili-dinsos':
+                $controller = new SuratKeteranganDomisiliController();
+                break;
+            case 'surat-ket-domisili':
+                $controller = new SuratKeteranganDomisiliPendudukController();
+                break;
+            case 'surat-ket-manual':
+                $controller = new SuratKeteranganManualController();
+                break;
+            case 'surat-ket-penghasilan':
+                $controller = new SuratKeteranganPenghasilanController();
+                break;
+            case 'surat-ket-pindah':
+                $controller = new SuratKeteranganPindahController();
+                break;
+            case 'surat-ket-tidakmampu':
+                $controller = new SuratKeteranganTidakMampuController();
+                break;
+            case 'surat-ket-tidakmampu-dinsos':
+                $controller = new SuratKeteranganTidakMampuDinkesController();
+                break;
+            case 'surat-ket-usaha':
+                $controller = new SuratKeteranganUsahaController();
+                break;
+            case 'surat-pengantar-pindah':
+                $controller = new SuratPengantarPindahController();
+                break;
+            case 'surat-pernyataan':
+                $controller = new SuratPernyataanController();
+                break;
+            case 'surat-rekomendasi':
+                $controller = new SuratRekomendasiController();
+                break;
+        }
+        return $controller->getNosurat() + 1;
+    }
     public function toExport($surat, $id)
     {
         switch ($surat) {
