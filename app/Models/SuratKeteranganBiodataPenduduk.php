@@ -27,6 +27,7 @@ class SuratKeteranganBiodataPenduduk extends Model
         "nik_ibu",
         "nama_lengkap_ayah",
         "nik_ayah",
+        "goldar",
         "keterangan",
     ];
 }
