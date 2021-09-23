@@ -15,7 +15,7 @@ class SuratKeteranganBiodataPendudukController extends Controller
      */
     public function index()
     {
-        $data = SuratKeteranganBiodataPenduduk::get();
+        $data = SuratKeteranganBiodataPenduduk::leftJoin('data_kepemilikan_dokumens', 'surat_keterangan_biodata_penduduks.nomor_surat', '=', 'data_kepemilikan_dokumens.surat_keterangan_biodata_penduduk_no_surat')->get();
         return response()->json($data);
     }
 

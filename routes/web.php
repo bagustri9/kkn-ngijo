@@ -78,59 +78,73 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('blangko-kk/{id}', ['uses' => 'BlangkoKKController@show']);
 
     /* Route Surat Keterangan Beda Nama */
+    $router->get('surat-ket-beda-nama', ['uses' => 'SuratKeteranganBedaNamaController@index']);
     $router->post('surat-ket-beda-nama', ['uses' => 'SuratKeteranganBedaNamaController@store']);
     $router->get('surat-ket-beda-nama/{id}', ['uses' => 'SuratKeteranganBedaNamaController@show']);
 
     /* Route Surat Keterangan Belum Menikah */
     $router->post('surat-ket-belum-menikah', ['uses' => 'SuratKeteranganBelumMenikahController@store']);
+    $router->get('surat-ket-belum-menikah', ['uses' => 'SuratKeteranganBelumMenikahController@index']);
     $router->get('surat-ket-belum-menikah/{id}', ['uses' => 'SuratKeteranganBelumMenikahController@show']);
 
     /* Route Surat Keterangan Biodata Penduduk */
     $router->post('surat-ket-biodata/', ['uses' => 'SuratKeteranganBiodataPendudukController@store']);
+    $router->get('surat-ket-biodata', ['uses' => 'SuratKeteranganBiodataPendudukController@index']);
     $router->get('surat-ket-biodata/{id}', ['uses' => 'SuratKeteranganBiodataPendudukController@show']);
 
     /* Route Surat Keterangan Domisili Dinsos */
     $router->post('surat-ket-domisili-dinsos', ['uses' => 'SuratKeteranganDomisiliController@store']);
+    $router->get('surat-ket-domisili-dinsos/', ['uses' => 'SuratKeteranganDomisiliController@index']);
     $router->get('surat-ket-domisili-dinsos/{id}', ['uses' => 'SuratKeteranganDomisiliController@show']);
 
     /* Route Surat Keterangan Domisili */
     $router->post('surat-ket-domisili', ['uses' => 'SuratKeteranganDomisiliPendudukController@store']);
+    $router->get('surat-ket-domisili', ['uses' => 'SuratKeteranganDomisiliPendudukController@index']);
     $router->get('surat-ket-domisili/{id}', ['uses' => 'SuratKeteranganDomisiliPendudukController@show']);
 
     /* Route Surat Keterangan Manual */
     $router->post('surat-ket-manual', ['uses' => 'SuratKeteranganManualController@store']);
+    $router->get('surat-ket-manual', ['uses' => 'SuratKeteranganManualController@index']);
     $router->get('surat-ket-manual/{id}', ['uses' => 'SuratKeteranganManualController@show']);
 
     /* Route Surat Keterangan Penghasilan */
     $router->post('surat-ket-penghasilan', ['uses' => 'SuratKeteranganPenghasilanController@store']);
+    $router->get('surat-ket-penghasilan', ['uses' => 'SuratKeteranganPenghasilanController@index']);
     $router->get('surat-ket-penghasilan/{id}', ['uses' => 'SuratKeteranganPenghasilanController@show']);
 
     /* Route Surat Keterangan Pindah */
     $router->post('surat-ket-pindah', ['uses' => 'SuratKeteranganPindahController@store']);
+    $router->get('surat-ket-pindah/', ['uses' => 'SuratKeteranganPindahController@index']);
     $router->get('surat-ket-pindah/{id}', ['uses' => 'SuratKeteranganPindahController@show']);
 
     /* Route Surat Keterangan TidakMampu */
     $router->post('surat-ket-tidakmampu', ['uses' => 'SuratKeteranganTidakMampuController@store']);
+    $router->get('surat-ket-tidakmampu/', ['uses' => 'SuratKeteranganTidakMampuController@index']);
     $router->get('surat-ket-tidakmampu/{id}', ['uses' => 'SuratKeteranganTidakMampuController@show']);
 
     /* Route Surat Keterangan TidakMampu Dinsos */
     $router->post('surat-ket-tidakmampu-dinsos', ['uses' => 'SuratKeteranganTidakMampuDinsosController@store']);
+    $router->get('surat-ket-tidakmampu-dinsos', ['uses' => 'SuratKeteranganTidakMampuDinsosController@index']);
     $router->get('surat-ket-tidakmampu-dinsos/{id}', ['uses' => 'SuratKeteranganTidakMampuDinsosController@show']);
 
     /* Route Surat Keterangan Usaha */
     $router->post('surat-ket-usaha', ['uses' => 'SuratKeteranganUsahaController@store']);
+    $router->get('surat-ket-usaha', ['uses' => 'SuratKeteranganUsahaController@index']);
     $router->get('surat-ket-usaha/{id}', ['uses' => 'SuratKeteranganUsahaController@show']);
 
     /* Route Surat Pengantar Pindah */
     $router->post('surat-pengantar-pindah/', ['uses' => 'SuratPengantarPindahController@store']);
+    $router->get('surat-pengantar-pindah', ['uses' => 'SuratPengantarPindahController@index']);
     $router->get('surat-pengantar-pindah/{id}', ['uses' => 'SuratPengantarPindahController@show']);
 
     /* Route Surat Pernyataan */
     $router->post('surat-pernyataan', ['uses' => 'SuratPernyataanController@store']);
+    $router->get('surat-pernyataan', ['uses' => 'SuratPernyataanController@index']);
     $router->get('surat-pernyataan/{id}', ['uses' => 'SuratPernyataanController@show']);
 
     /* Route Surat Rekomendasi */
     $router->post('surat-rekomendasi', ['uses' => 'SuratRekomendasiController@store']);
+    $router->get('surat-rekomendasi', ['uses' => 'SuratRekomendasiController@index']);
     $router->get('surat-rekomendasi/{id}', ['uses' => 'SuratRekomendasiController@show']);
 
     /* Route Export */
