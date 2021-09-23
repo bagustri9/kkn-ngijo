@@ -43,7 +43,7 @@ class SuratKeteranganBiodataPendudukController extends Controller
     public function store(Request $request)
     {
         $nosurat = $this->getNosurat();
-        $data = SuratKeteranganBiodataPenduduk::create(array_merge($request->all(), ['no_surat' => ++$nosurat]));
+        $data = SuratKeteranganBiodataPenduduk::create(array_merge($request->all(), ['no_surat' => ++$nosurat], ['keterangan' => "-"]));
         $dkd = new DataKepemilikanDokumenController();
         $request->request->add(['surat_keterangan_biodata_penduduk_no_surat' => $nosurat]);
         $dkd->store($request);
