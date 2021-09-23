@@ -123,9 +123,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('surat-ket-tidakmampu/{id}', ['uses' => 'SuratKeteranganTidakMampuController@show']);
 
     /* Route Surat Keterangan TidakMampu Dinsos */
-    $router->post('surat-ket-tidakmampu-dinsos', ['uses' => 'SuratKeteranganTidakMampuDinsosController@store']);
-    $router->get('surat-ket-tidakmampu-dinsos', ['uses' => 'SuratKeteranganTidakMampuDinsosController@index']);
-    $router->get('surat-ket-tidakmampu-dinsos/{id}', ['uses' => 'SuratKeteranganTidakMampuDinsosController@show']);
+    $router->post('surat-ket-tidakmampu-dinsos', ['uses' => 'SuratKeteranganTidakMampuDinkesController@store']);
+    $router->get('surat-ket-tidakmampu-dinsos', ['uses' => 'SuratKeteranganTidakMampuDinkesController@index']);
+    $router->get('surat-ket-tidakmampu-dinsos/{id}', ['uses' => 'SuratKeteranganTidakMampuDinkesController@show']);
 
     /* Route Surat Keterangan Usaha */
     $router->post('surat-ket-usaha', ['uses' => 'SuratKeteranganUsahaController@store']);
