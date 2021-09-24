@@ -31,6 +31,7 @@ class AnggotaKK extends Model
         "tempat_tinggal",
         "keterangan",
         'status_pendidikan',
-        "kelompok_pekerjaan"
+        "kelompok_pekerjaan",
+        "nomor_tanggal_akta_lahir"
     ];
 }

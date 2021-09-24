@@ -16,6 +16,7 @@ class AddColumnToAnggotaKKS extends Migration
         Schema::table('anggota_k_k_s', function (Blueprint $table) {
             $table->string("status_pendidikan");
             $table->string("kelompok_pekerjaan");
+            $table->string("nomor_tanggal_akta_lahir");
         });
     }
 
@@ -27,7 +28,11 @@ class AddColumnToAnggotaKKS extends Migration
     public function down()
     {
         Schema::table('anggota_k_k_s', function (Blueprint $table) {
-            //
+            $table->dropColumn([
+                "status_pendidikan",
+                "kelompok_pekerjaan",
+                "nomor_tanggal_akta_lahir"
+            ]);
         });
     }
 }
