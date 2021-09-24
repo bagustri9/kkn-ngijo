@@ -29,6 +29,8 @@ class AnggotaKK extends Model
         "nama_ayah",
         "nik_ayah",
         "tempat_tinggal",
-        "keterangan"
+        "keterangan",
+        'status_pendidikan',
+        "kelompok_pekerjaan"
     ];
 }
