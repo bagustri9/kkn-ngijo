@@ -31,7 +31,6 @@ class AddColumnToAnggotaKKS extends Migration
             $table->dropColumn([
                 "status_pendidikan",
                 "kelompok_pekerjaan",
-                "nomor_tanggal_akta_lahir"
             ]);
         });
     }
